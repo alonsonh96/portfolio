@@ -7,15 +7,21 @@ const About = () => {
     <Section id='sobre mí' className=''>
       <div className='max-w-7xl mx-auto flex flex-col-reverse md:flex-row gap-16 md:gap-8 items-center'>
         <motion.div
-          initial={{ opacity: 0, x: -100 }}
+          initial={{ opacity: 0, x: -50 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: false, amount: 0.3 }}
-          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
+          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
           className='flex-1 md:text-left'
         >
-          <h2 className='text-2xl md:text-5xl  font-bold tracking-widest text-white mb-2'>
+          <motion.h2
+            className='text-2xl sm:text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-2 md:mb-3'
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: false, amount: 0.3 }}
+            transition={{ duration: 0.7 }}
+          >
             Sobre mí
-          </h2>
+          </motion.h2>
           {/* Líneas decorativas */}
           <div className='space-y-2 mb-5'>
             <motion.span
@@ -35,23 +41,35 @@ const About = () => {
               style={{ originX: 0 }}
             />
           </div>
-          <p className='text-sm md:text-lg text-white mb-6 leading-relaxed text-justify'>
+          <motion.p
+            className='text-base md:text-lg text-white mb-6 leading-relaxed'
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: false, amount: 0.3 }}
+            transition={{ duration: 0.7, delay: 0.2 }}
+          >
             Hola, soy Alonso, Ingeniero de Sistemas y desarrollador web con
             enfoque en Frontend y Backend. Me especializo en crear aplicaciones
             modernas, escalables y bien estructuradas, combinando buenas
             prácticas de desarrollo con una experiencia de usuario cuidada.
             Disfruto transformar ideas en soluciones digitales funcionales y
             mantenibles.
-          </p>
-          <p className='text-sm md:text-lg text-gray-300 leading-relaxed text-justify'>
+          </motion.p>
+          <motion.p
+            className='text-base md:text-lg text-white mb-6 leading-relaxed'
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: false, amount: 0.3 }}
+            transition={{ duration: 0.7, delay: 0.2 }}
+          >
             Más allá del código, mantengo una curiosidad constante por nuevas
             tecnologías, patrones de diseño y optimización de rendimiento. Creo
             firmemente que el aprendizaje continuo es clave para construir
             productos digitales sólidos y bien pensados.
-          </p>
+          </motion.p>
         </motion.div>
         <motion.div
-          initial={{ opacity: 0, x: 100 }}
+          initial={{ opacity: 0, x: 50 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: false, amount: 0.3 }}
           transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}

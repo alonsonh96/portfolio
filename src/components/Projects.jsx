@@ -31,7 +31,7 @@ const Projects = () => {
             className='order-2 md:order-1'
           >
             <motion.h2
-              className='text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-4 md:mb-6'
+              className='text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-2 md:mb-4'
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: false, amount: 0.3 }}
