@@ -3,104 +3,87 @@ import { motion } from 'motion/react'
 import Section from './Section'
 
 const Projects = () => {
-
   return (
-    <Section id="proyectos">
-
-      <div className="max-w-7xl mx-auto w-full grid md:grid-cols-2 gap-12 items-center relative z-10">
-        {/* Contenido izquierdo */}
-        <motion.div
-          initial={{ opacity: 0, x: -50 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: false, amount: 0.3 }}
-          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-        >
-          <motion.h2 
-            className="text-6xl md:text-7xl font-bold text-white mb-6"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
+    <Section id='proyectos'>
+      <div className='max-w-7xl mx-auto w-full relative z-10 px-6'>
+        <div className='flex flex-col md:grid md:grid-cols-2 gap-8 md:gap-16 items-center'>
+          {/* Imagen - Aparece primero en mobile, segunda en desktop */}
+          <motion.div
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: false, amount: 0.3 }}
-            transition={{ duration: 0.7 }}
+            transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+            className='relative order-1 md:order-2 w-full'
           >
-            Mis proyectos
-          </motion.h2>
-          
-          <div className="w-32 h-1 bg-white mb-8"></div>
-          
-          <motion.p 
-            className="text-xl text-gray-400 mb-8 leading-relaxed"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            <img
+              src='/src/assets/projects.webp'
+              alt='Projects showcase'
+              className='w-full h-auto object-contain drop-shadow-2xl'
+            />
+          </motion.div>
+
+          {/* Texto - Aparece segundo en mobile, primero en desktop */}
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: false, amount: 0.3 }}
-            transition={{ duration: 0.7, delay: 0.2 }}
+            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+            className='order-2 md:order-1'
           >
-            Estos son algunos de mis proyectos que he realizado y en los que estoy trabajando actualmente.
-          </motion.p>
-
-          <motion.a
-            href="#all-projects"
-            className="inline-block px-8 py-4 bg-gray-800 text-white rounded-lg font-medium hover:bg-gray-700 transition-colors"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: false, amount: 0.3 }}
-            transition={{ duration: 0.7, delay: 0.3 }}
-            whileHover={{ scale: 1.05, y: -2 }}
-            whileTap={{ scale: 0.98 }}
-          >
-            Más información
-          </motion.a>
-        </motion.div>
-
-        {/* Mockups derecha */}
-        <motion.div
-          className="relative"
-          initial={{ opacity: 0, x: 50 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: false, amount: 0.3 }}
-          transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-        >
-          <div className="grid grid-cols-2 gap-4">
-            {/* Mockup 1 */}
-            <motion.div
-              className="bg-gray-800/50 backdrop-blur-sm border border-white/10 rounded-lg p-4 aspect-[3/4] transform rotate-[-5deg] hover:rotate-0 transition-transform"
-              whileHover={{ scale: 1.05, rotate: 0 }}
+            <motion.h2
+              className='text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-4 md:mb-6'
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: false, amount: 0.3 }}
+              transition={{ duration: 0.7 }}
             >
-              <div className="w-full h-full bg-gradient-to-br from-purple-900/30 to-blue-900/30 rounded flex items-center justify-center text-4xl">
-                🌐
-              </div>
-            </motion.div>
+              Mis proyectos
+            </motion.h2>
 
-            {/* Mockup 2 */}
-            <motion.div
-              className="bg-gray-800/50 backdrop-blur-sm border border-white/10 rounded-lg p-4 aspect-[3/4] transform rotate-[5deg] hover:rotate-0 transition-transform mt-8"
-              whileHover={{ scale: 1.05, rotate: 0 }}
-            >
-              <div className="w-full h-full bg-gradient-to-br from-blue-900/30 to-purple-900/30 rounded flex items-center justify-center text-4xl">
-                📱
-              </div>
-            </motion.div>
+            <div className='space-y-2 mb-5'>
+              <motion.span
+                className='block h-0.5 w-20 md:w-30 bg-blue-400'
+                initial={{ scaleX: 0 }}
+                whileInView={{ scaleX: 1 }}
+                viewport={{ once: false }}
+                transition={{ duration: 0.6, delay: 0.2, ease: 'easeOut' }}
+                style={{ originX: 0 }}
+              />
+              <motion.span
+                className='block h-0.5 w-12 md:w-16 bg-blue-400/70'
+                initial={{ scaleX: 0 }}
+                whileInView={{ scaleX: 1 }}
+                viewport={{ once: false }}
+                transition={{ duration: 0.6, delay: 0.35, ease: 'easeOut' }}
+                style={{ originX: 0 }}
+              />
+            </div>
 
-            {/* Mockup 3 */}
-            <motion.div
-              className="bg-gray-800/50 backdrop-blur-sm border border-white/10 rounded-lg p-4 aspect-[3/4] transform rotate-[3deg] hover:rotate-0 transition-transform -mt-4"
-              whileHover={{ scale: 1.05, rotate: 0 }}
+            <motion.p
+              className='text-base md:text-lg text-white mb-6 md:mb-8 leading-relaxed max-w-md'
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: false, amount: 0.3 }}
+              transition={{ duration: 0.7, delay: 0.2 }}
             >
-              <div className="w-full h-full bg-gradient-to-br from-green-900/30 to-blue-900/30 rounded flex items-center justify-center text-4xl">
-                💼
-              </div>
-            </motion.div>
+              Estos son algunos de mis proyectos que he realizado y en los que
+              estoy trabajando actualmente.
+            </motion.p>
 
-            {/* Mockup 4 */}
-            <motion.div
-              className="bg-gray-800/50 backdrop-blur-sm border border-white/10 rounded-lg p-4 aspect-[3/4] transform rotate-[-3deg] hover:rotate-0 transition-transform"
-              whileHover={{ scale: 1.05, rotate: 0 }}
+            <motion.a
+              href='#all-projects'
+              className='inline-block px-6 md:px-8 py-3 md:py-4 bg-gray-800 text-white rounded-lg font-medium hover:bg-gray-700 transition-colors text-sm md:text-base'
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: false, amount: 0.3 }}
+              transition={{ duration: 0.7, delay: 0.3 }}
+              whileHover={{ scale: 1.05, y: -2 }}
+              whileTap={{ scale: 0.98 }}
             >
-              <div className="w-full h-full bg-gradient-to-br from-pink-900/30 to-purple-900/30 rounded flex items-center justify-center text-4xl">
-                🚀
-              </div>
-            </motion.div>
-          </div>
-        </motion.div>
+              Más información
+            </motion.a>
+          </motion.div>
+        </div>
       </div>
     </Section>
   )
