@@ -42,7 +42,7 @@ const About = () => {
             />
           </div>
           <motion.p
-            className='text-base md:text-lg text-white mb-6 leading-relaxed'
+            className='text-base md:text-lg text-gray-400 mb-6 leading-relaxed'
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: false, amount: 0.3 }}
@@ -56,7 +56,7 @@ const About = () => {
             mantenibles.
           </motion.p>
           <motion.p
-            className='text-base md:text-lg text-white mb-6 leading-relaxed'
+            className='text-base md:text-lg text-gray-400 mb-6 leading-relaxed'
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: false, amount: 0.3 }}
