@@ -203,7 +203,7 @@ const Hero = () => {
               href={social.href}
               target='_blank'
               rel='noopener noreferrer'
-              className='w-12 h-12 flex items-center justify-center bg-white backdrop-blur-sm rounded-lg border border-white/10 hover:border-white/30 text-xl hover:scale-110 transition-all'
+              className='w-12 h-12 flex items-center justify-center bg-slate-600 backdrop-blur-sm rounded-lg border border-white/10 hover:border-white/30 text-xl hover:scale-110 transition-all'
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 1.1 + i * 0.1 }}

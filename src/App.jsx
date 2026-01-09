@@ -39,6 +39,7 @@ function App () {
       wheelSpeed: 1,
       tolerance: 10,
       preventDefault: true,
+      lockAxis: true,
 
       onDown: () => goToSection(currentIndex + 1),
       onUp: () => goToSection(currentIndex - 1)
