@@ -25,14 +25,36 @@ const Home = () => {
     let currentIndex = 0
     let isAnimating = false
 
+    // 🔥 leer hash al entrar
+    const hash = window.location.hash.replace('#', '')
+    if (hash) {
+      const indexFromHash = sections.findIndex(section => section.id === hash)
+
+      if (indexFromHash !== -1) {
+        currentIndex = indexFromHash
+
+        // sin animación inicial
+        gsap.set(window, {
+          scrollTo: sections[currentIndex]
+        })
+      }
+    }
+
     function goToSection (index) {
       if (index < 0 || index >= sections.length || isAnimating) return
 
       isAnimating = true
       currentIndex = index
 
+      const section = sections[index]
+      const id = section.getAttribute('id')
+
+      if (id) {
+        history.replaceState(null, '', `/#${id}`)
+      }
+
       gsap.to(window, {
-        scrollTo: { y: sections[index], autoKill: false },
+        scrollTo: { y: section, autoKill: false },
         duration: 1,
         ease: 'power3.inOut',
         onComplete: () => {
@@ -52,9 +74,7 @@ const Home = () => {
       onUp: () => goToSection(currentIndex - 1)
     })
 
-    return () => {
-      observer.kill()
-    }
+    return () => observer.kill()
   }, [])
 
   return (

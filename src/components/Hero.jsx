@@ -21,7 +21,7 @@ const Hero = () => {
 
   return (
     <Section
-      id='hero'
+      id='home'
       className='flex items-center justify-center px-6 relative overflow-hidden bg-linear-to-br from-gray-900 via-black to-gray-900'
     >
       {/* Animated background orbs */}
@@ -150,7 +150,7 @@ const Hero = () => {
           transition={{ duration: 0.8, delay: 0.8 }}
         >
           <motion.a
-            href='#contacto'
+            href='#contact'
             className='group px-8 py-4 bg-linear-to-r from-purple-600 to-pink-600 text-white rounded-xl font-semibold hover:shadow-2xl hover:shadow-purple-500/50 transition-all duration-300 inline-flex items-center gap-2'
             whileHover={{ scale: 1.05, y: -2 }}
             whileTap={{ scale: 0.98 }}
@@ -165,7 +165,7 @@ const Hero = () => {
           </motion.a>
 
           <motion.a
-            href='#proyectos'
+            href='#projects'
             className='px-8 py-4 border-2 border-white/20 text-white rounded-xl font-semibold hover:bg-white/10 hover:border-white/40 transition-all backdrop-blur-sm'
             whileHover={{ scale: 1.05, y: -2 }}
             whileTap={{ scale: 0.98 }}
