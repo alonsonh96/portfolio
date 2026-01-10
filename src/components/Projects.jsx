@@ -138,7 +138,7 @@ const Projects = () => {
               {/* Image container with glassmorphism */}
               <div className='relative bg-white/5 backdrop-blur-sm rounded-2xl p-4 border border-white/10 shadow-2xl'>
                 <motion.img
-                  src='/public/projects.webp'
+                  src='/projects.webp'
                   alt='Projects showcase'
                   className='w-full h-auto object-contain rounded-xl'
                   whileHover={{ scale: 1.02 }}

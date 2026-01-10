@@ -238,7 +238,7 @@ const About = () => {
                   transition={{ duration: 0.3 }}
                 >
                   <img
-                    src='/public/about.webp'
+                    src='/about.webp'
                     alt='Foto de Alonso'
                     className='w-full h-full object-cover rounded-full shadow-2xl border-4 border-white/10'
                   />
