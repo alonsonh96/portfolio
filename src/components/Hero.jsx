@@ -22,12 +22,12 @@ const Hero = () => {
   return (
     <Section
       id='home'
-      className='flex items-center justify-center px-6 relative overflow-hidden bg-linear-to-br from-gray-900 via-black to-gray-900'
+      className='px-6 relative bg-linear-to-br from-gray-900 via-black to-gray-900'
     >
       {/* Animated background orbs */}
       <div className='absolute inset-0 overflow-hidden'>
         <motion.div
-          className='absolute top-1/4 left-1/4 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl'
+          className='absolute top-1/4 left-1/4 w-96 h-96 bg-purple-500/10 rounded-full blur-2xl md:blur-3xl'
           animate={{
             scale: [1, 1.2, 1],
             opacity: [0.3, 0.5, 0.3],
@@ -41,7 +41,7 @@ const Hero = () => {
           }}
         />
         <motion.div
-          className='absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl'
+          className='absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-2xl md:blur-3xl'
           animate={{
             scale: [1.2, 1, 1.2],
             opacity: [0.3, 0.6, 0.3],
@@ -55,7 +55,7 @@ const Hero = () => {
           }}
         />
         <motion.div
-          className='absolute top-1/2 left-1/2 w-96 h-96 bg-pink-500/10 rounded-full blur-3xl'
+          className='absolute top-1/2 left-1/2 w-96 h-96 bg-pink-500/10 rounded-full blur-2xl md:blur-3xl'
           animate={{
             scale: [1, 1.3, 1],
             opacity: [0.4, 0.6, 0.4],
@@ -221,7 +221,7 @@ const Hero = () => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1, delay: 1.6 }}
-        className='absolute bottom-10 left-1/2 transform -translate-x-1/2 flex flex-col items-center gap-2'
+        className='absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2'
       >
         <span className='text-xs text-gray-500 tracking-wider'>SCROLL</span>
         <div className='w-6 h-10 border-2 border-white/20 rounded-full flex justify-center relative overflow-hidden'>

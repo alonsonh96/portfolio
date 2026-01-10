@@ -8,12 +8,12 @@ const Projects = () => {
   return (
     <Section
       id='projects'
-      className='py-20 px-6 bg-linear-to-br from-gray-900 via-[#1a2332] to-black flex items-center relative overflow-hidden'
+      className='px-6 bg-linear-to-br from-gray-900 via-[#1a2332] to-black flex items-center relative'
     >
       {/* Animated background elements */}
       <div className='absolute inset-0 overflow-hidden'>
         <motion.div
-          className='absolute top-1/3 right-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl'
+          className='absolute top-1/3 right-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-2xl md:blur-3xl'
           animate={{
             scale: [1, 1.2, 1],
             opacity: [0.2, 0.4, 0.2]
@@ -25,7 +25,7 @@ const Projects = () => {
           }}
         />
         <motion.div
-          className='absolute bottom-1/4 left-1/4 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl'
+          className='absolute bottom-1/4 left-1/4 w-96 h-96 bg-cyan-500/10 rounded-full blur-2xl md:blur-3xl'
           animate={{
             scale: [1.2, 1, 1.2],
             opacity: [0.2, 0.3, 0.2]
@@ -133,7 +133,7 @@ const Projects = () => {
               }}
             >
               {/* Glow effect behind image */}
-              <div className='absolute inset-0 bg-linear-to-r from-blue-500/20 to-cyan-500/20 blur-3xl rounded-3xl scale-95' />
+              <div className='absolute inset-0 bg-linear-to-r from-blue-500/20 to-cyan-500/20 blur-2xl md:blur-3xl rounded-3xl scale-95' />
 
               {/* Image container with glassmorphism */}
               <div className='relative bg-white/5 backdrop-blur-sm rounded-2xl p-4 border border-white/10 shadow-2xl'>
@@ -164,20 +164,18 @@ const Projects = () => {
               </motion.div>
 
               {/* Orbiting dot */}
+
               <motion.div
-                className='absolute top-1/2 left-1/2 w-3 h-3 bg-blue-400 rounded-full shadow-lg shadow-blue-400/50'
-                animate={{
-                  rotate: 360
-                }}
+                className='absolute inset-0'
+                animate={{ rotate: 360 }}
                 transition={{
-                  duration: 10,
+                  duration: 12,
                   repeat: Infinity,
                   ease: 'linear'
                 }}
-                style={{
-                  transformOrigin: '-120px 0'
-                }}
-              />
+              >
+                <div className='absolute top-1/2 left-[10%] w-3 h-3 bg-blue-400 rounded-full shadow-lg shadow-blue-400/50' />
+              </motion.div>
             </motion.div>
           </motion.div>
         </div>

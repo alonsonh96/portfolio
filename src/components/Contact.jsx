@@ -35,12 +35,12 @@ const Contact = () => {
   return (
     <Section
       id='contact'
-      className='min-h-screen h-screen py-20 px-6 bg-linear-to-br from-gray-900 via-black to-gray-900 flex items-center relative overflow-hidden'
+      className='px-6 bg-linear-to-br from-gray-900 via-black to-gray-900 flex items-center relative'
     >
       {/* Animated background elements */}
       <div className='absolute inset-0 overflow-hidden'>
         <motion.div
-          className='absolute top-1/4 left-1/4 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl'
+          className='absolute top-1/4 left-1/4 w-96 h-96 bg-purple-500/20 rounded-full blur-2xl md:blur-3xl'
           animate={{
             scale: [1, 1.2, 1],
             opacity: [0.3, 0.5, 0.3]
@@ -52,7 +52,7 @@ const Contact = () => {
           }}
         />
         <motion.div
-          className='absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-500/20 rounded-full blur-3xl'
+          className='absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-500/20 rounded-full blur-2xl md:blur-3xl'
           animate={{
             scale: [1, 1.3, 1],
             opacity: [0.3, 0.6, 0.3]
@@ -64,7 +64,7 @@ const Contact = () => {
           }}
         />
         <motion.div
-          className='absolute top-1/2 left-1/2 w-96 h-96 bg-pink-500/20 rounded-full blur-3xl'
+          className='absolute top-1/2 left-1/2 w-96 h-96 bg-pink-500/20 rounded-full blur-2xl md:blur-3xl'
           animate={{
             scale: [1.2, 1, 1.2],
             opacity: [0.4, 0.6, 0.4]
@@ -201,16 +201,8 @@ const Contact = () => {
             {/* Floating Card with Glassmorphism */}
             <motion.div
               className='relative w-full aspect-square max-w-lg mx-auto'
-              animate={
-                {
-                  // y: [0, -20, 0]
-                }
-              }
-              transition={{
-                duration: 6,
-                repeat: Infinity,
-                ease: 'easeInOut'
-              }}
+              animate={{ y: [0, -12, 0] }}
+              transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
             >
               {/* Main Card */}
               <div className='relative w-full h-full bg-linear-to-br from-white/10 to-white/5 backdrop-blur-xl rounded-3xl border border-white/20 shadow-2xl p-8 overflow-hidden'>

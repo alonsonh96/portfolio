@@ -9,27 +9,30 @@ const About = () => {
   //   { icon: '🚀', label: 'Escalable' },
   //   { icon: '💡', label: 'Innovador+' }
   // ];
+
+  const isMobile = window.innerWidth < 768
+
   return (
     <Section
       id='about-me'
-      className='px-6 bg-linear-to-r from-[#1a2332] via-gray-900 to-black flex items-center relative overflow-hidden'
+      className='px-6 bg-linear-to-r from-[#1a2332] via-gray-900 to-black flex items-center relative'
     >
       {/* Animated background */}
       <div className='absolute inset-0 overflow-hidden'>
         <motion.div
-          className='absolute top-1/4 left-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl'
+          className='absolute top-1/4 left-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-2xl md:blur-3xl'
           animate={{
             scale: [1, 1.3, 1],
             opacity: [0.2, 0.4, 0.2]
           }}
           transition={{
-            duration: 8,
+            duration: isMobile ? 8 : 4,
             repeat: Infinity,
             ease: 'easeInOut'
           }}
         />
         <motion.div
-          className='absolute bottom-1/3 right-1/4 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl'
+          className='absolute bottom-1/3 right-1/4 w-96 h-96 bg-purple-500/10 rounded-full blur-2xl md:blur-3xl'
           animate={{
             scale: [1.2, 1, 1.2],
             opacity: [0.2, 0.3, 0.2]
@@ -48,7 +51,7 @@ const About = () => {
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: false, amount: 0.3 }}
+            viewport={{ once: isMobile, amount: 0.3 }}
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
             className='flex-1'
           >
@@ -69,7 +72,7 @@ const About = () => {
               className='text-3xl md:text-6xl lg:text-7xl font-bold text-white mb-2'
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: false, amount: 0.3 }}
+              viewport={{ once: isMobile, amount: 0.3 }}
               transition={{ duration: 0.7 }}
             >
               Sobre{' '}
@@ -84,14 +87,14 @@ const About = () => {
                 className='h-1 bg-linear-to-r from-purple-500 to-pink-500 rounded-full'
                 initial={{ width: 0 }}
                 whileInView={{ width: '120px' }}
-                viewport={{ once: false }}
+                viewport={{ once: isMobile, amount: 0.3 }}
                 transition={{ duration: 0.6, delay: 0.2, ease: 'easeOut' }}
               />
               <motion.div
                 className='h-0.5 bg-linear-to-r from-purple-400/70 to-pink-400/70 rounded-full'
                 initial={{ width: 0 }}
                 whileInView={{ width: '80px' }}
-                viewport={{ once: false }}
+                viewport={{ once: isMobile, amount: 0.3 }}
                 transition={{ duration: 0.6, delay: 0.35, ease: 'easeOut' }}
               />
             </div>
@@ -100,7 +103,7 @@ const About = () => {
               className='text-base md:text-lg text-gray-400 mb-6 leading-relaxed'
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: false, amount: 0.3 }}
+              viewport={{ once: isMobile, amount: 0.3 }}
               transition={{ duration: 0.7, delay: 0.2 }}
             >
               Hola, soy <span className='text-white font-semibold'>Alonso</span>
@@ -114,7 +117,7 @@ const About = () => {
               className='text-base md:text-lg text-gray-400 mb-8 leading-relaxed'
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: false, amount: 0.3 }}
+              viewport={{ once: isMobile, amount: 0.3 }}
               transition={{ duration: 0.7, delay: 0.3 }}
             >
               Más allá del código, mantengo una curiosidad constante por nuevas
@@ -152,7 +155,7 @@ const About = () => {
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: false, amount: 0.3 }}
+            viewport={{ once: isMobile, amount: 0.3 }}
             transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
             className='flex-1 relative flex justify-center mt-28 sm:mt-0'
           >
@@ -183,7 +186,7 @@ const About = () => {
                 style={{
                   background:
                     'radial-gradient(circle, rgba(168,85,247,0.4) 0%, transparent 70%)',
-                  filter: 'blur(40px)'
+                  filter: isMobile ? 'blur(30px)' : 'blur(50px)'
                 }}
               />
 
@@ -194,14 +197,14 @@ const About = () => {
                   opacity: [0.2, 0.4, 0.2]
                 }}
                 transition={{
-                  duration: 4,
+                  duration: isMobile ? 8 : 4,
                   repeat: Infinity,
                   ease: 'easeInOut'
                 }}
                 style={{
                   background:
                     'radial-gradient(circle, rgba(236,72,153,0.3) 0%, transparent 70%)',
-                  filter: 'blur(50px)'
+                  filter: isMobile ? 'blur(30px)' : 'blur(50px)'
                 }}
               />
 
@@ -248,31 +251,19 @@ const About = () => {
                 </motion.div>
 
                 {/* Orbiting dots */}
-                {[0, 120, 240].map((rotation, i) => (
-                  <motion.div
-                    key={i}
-                    className='absolute top-1/2 left-1/2 w-3 h-3 rounded-full'
-                    style={{
-                      background:
-                        i === 0 ? '#a855f7' : i === 1 ? '#ec4899' : '#3b82f6',
-                      boxShadow: `0 0 20px ${
-                        i === 0 ? '#a855f7' : i === 1 ? '#ec4899' : '#3b82f6'
-                      }`,
-                      transformOrigin: `0 ${
-                        i === 0 ? '-180px' : i === 1 ? '-200px' : '-160px'
-                      }`
-                    }}
-                    animate={{
-                      rotate: 360
-                    }}
-                    transition={{
-                      duration: 8 + i * 2,
-                      repeat: Infinity,
-                      ease: 'linear',
-                      delay: i * 0.5
-                    }}
-                  />
-                ))}
+                <motion.div
+                  className='absolute inset-0'
+                  animate={{ rotate: 360}}
+                  transition={{
+                    duration: 12,
+                    repeat: Infinity,
+                    ease: 'linear'
+                  }}
+                >
+                  <div className='absolute top-0 left-1/2 w-3 h-3 rounded-full bg-purple-500' />
+                  <div className='absolute bottom-4 left-1/4 w-3 h-3 rounded-full bg-pink-500' />
+                  <div className='absolute right-4 top-1/2 w-3 h-3 rounded-full bg-blue-500' />
+                </motion.div>
               </div>
 
               {/* Floating badge */}

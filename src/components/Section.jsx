@@ -8,11 +8,10 @@ const Section = forwardRef(({ children, className = "", id }, ref) => {
       ref={ref}
       id={id}
       className={`
-        h-screen
+        min-h-svh
         flex
         items-center
         relative
-        overflow-hidden
         panel 
         ${className}
       `}
