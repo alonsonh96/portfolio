@@ -146,26 +146,6 @@ const About = () => {
                 </motion.div>
               ))}
             </motion.div> */}
-
-            {/* CTA */}
-            {/* <motion.a
-              href="#contacto"
-              className="group inline-flex items-center gap-3 px-8 py-4 bg-linear-to-r from-purple-600 to-pink-600 text-white rounded-xl text-lg font-semibold hover:shadow-2xl hover:shadow-purple-500/50 transition-all duration-300"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: false }}
-              transition={{ duration: 0.7, delay: 0.6 }}
-              whileHover={{ scale: 1.05, y: -2 }}
-              whileTap={{ scale: 0.98 }}
-            >
-              <span>Hablemos</span>
-              <motion.span
-                animate={{ x: [0, 5, 0] }}
-                transition={{ duration: 1.5, repeat: Infinity }}
-              >
-                →
-              </motion.span>
-            </motion.a> */}
           </motion.div>
 
           {/* Right Side - Image with effects */}

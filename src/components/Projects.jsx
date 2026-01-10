@@ -1,8 +1,12 @@
 // eslint-disable-next-line no-unused-vars
 import { motion } from 'motion/react'
 import Section from './Section'
+import { Link } from 'react-router-dom'
+
+const MotionLink = motion.create(Link)
 
 const Projects = () => {
+
   return (
     <Section 
       id="proyectos" 
@@ -48,18 +52,6 @@ const Projects = () => {
             className="order-2 lg:order-1"
           >
             {/* Badge */}
-            {/* <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: false }}
-              transition={{ duration: 0.6 }}
-              className="inline-block mb-6"
-            >
-              <div className="px-4 py-2 bg-blue-500/10 backdrop-blur-sm border border-blue-500/20 rounded-full">
-                <span className="text-sm text-blue-300">💼 Portfolio</span>
-              </div>
-            </motion.div> */}
-
             <motion.h2
               className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-4"
               initial={{ opacity: 0, y: 30 }}
@@ -102,38 +94,9 @@ const Projects = () => {
               estoy trabajando actualmente.
             </motion.p>
 
-            {/* Stats */}
-            {/* <motion.div
-              className="grid grid-cols-3 gap-4 mb-8"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: false }}
-              transition={{ duration: 0.7, delay: 0.3 }}
-            >
-              {[
-                { label: 'Completados', value: '15+', icon: '✓' },
-                { label: 'En curso', value: '3', icon: '⚡' },
-                { label: 'Tecnologías', value: '10+', icon: '🔧' }
-              ].map((stat, i) => (
-                <motion.div
-                  key={stat.label}
-                  className="bg-white/5 backdrop-blur-sm rounded-xl p-4 border border-white/10 hover:border-blue-500/30 transition-all"
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: false }}
-                  transition={{ duration: 0.5, delay: 0.4 + i * 0.1 }}
-                  whileHover={{ scale: 1.05, y: -5 }}
-                >
-                  <div className="text-sm text-gray-500 mb-1">{stat.icon}</div>
-                  <div className="text-2xl font-bold text-white mb-1">{stat.value}</div>
-                  <div className="text-xs text-gray-400">{stat.label}</div>
-                </motion.div>
-              ))}
-            </motion.div> */}
-
             {/* CTA Button */}
-            <motion.a
-              href="#all-projects"
+            <MotionLink
+              to="/all-projects"
               className="group inline-flex items-center gap-3 px-8 py-4 bg-linear-to-r from-blue-600 to-cyan-600 text-white rounded-xl text-lg font-semibold hover:shadow-2xl hover:shadow-blue-500/50 transition-all duration-300"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -149,7 +112,7 @@ const Projects = () => {
               >
                 →
               </motion.span>
-            </motion.a>
+            </MotionLink>
           </motion.div>
 
           {/* Right Side - Image with 3D Effect */}
@@ -199,32 +162,9 @@ const Projects = () => {
                 animate={{
                   y: [0, -10, 0],
                 }}
-                // transition={{
-                //   duration: 3,
-                //   repeat: Infinity,
-                //   ease: "easeInOut"
-                // }}
               >
                 ✨ Nuevos proyectos
               </motion.div>
-
-              {/* <motion.div
-                className="absolute -bottom-4 -left-4 bg-white/10 backdrop-blur-md text-white px-4 py-2 rounded-xl border border-white/20 shadow-lg text-sm"
-                initial={{ opacity: 0, scale: 0 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: false }}
-                // transition={{ duration: 0.5, delay: 0.8 }}
-                animate={{
-                  y: [0, 10, 0],
-                }}
-                transition={{
-                  duration: 4,
-                  repeat: Infinity,
-                  ease: "easeInOut"
-                }}
-              >
-                🚀 Stack moderno
-              </motion.div> */}
 
               {/* Orbiting dot */}
               <motion.div
