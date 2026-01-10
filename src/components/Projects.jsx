@@ -8,7 +8,7 @@ const Projects = () => {
   return (
     <Section
       id='projects'
-      className='px-6 bg-linear-to-br from-gray-900 via-[#1a2332] to-black flex items-center relative'
+      className='px-6 bg-linear-to-br from-gray-900 via-[#1a2332] to-black flex relative'
     >
       {/* Animated background elements */}
       <div className='absolute inset-0 overflow-hidden'>

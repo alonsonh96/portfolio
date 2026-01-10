@@ -35,7 +35,7 @@ const Contact = () => {
   return (
     <Section
       id='contact'
-      className='px-6 bg-linear-to-br from-gray-900 via-black to-gray-900 flex items-center relative'
+      className='px-6 bg-linear-to-br from-gray-900 via-black to-gray-900 flex relative'
     >
       {/* Animated background elements */}
       <div className='absolute inset-0 overflow-hidden'>

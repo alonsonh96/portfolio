@@ -15,7 +15,7 @@ const About = () => {
   return (
     <Section
       id='about-me'
-      className='px-6 bg-linear-to-r from-[#1a2332] via-gray-900 to-black flex items-center relative'
+      className='px-6 bg-linear-to-r from-[#1a2332] via-gray-900 to-black flex relative'
     >
       {/* Animated background */}
       <div className='absolute inset-0 overflow-hidden'>

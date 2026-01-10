@@ -132,7 +132,7 @@ const AllProjects = () => {
   return (
     <section
       id='all-projects'
-      className='min-h-screen py-32 px-6 bg-linear-to-r from-gray-900 via-black to-gray-900 relative overflow-hidden'
+      className='min-h-screen py-10 md:py-20 px-6 bg-linear-to-r from-gray-900 via-black to-gray-900 relative overflow-hidden'
     >
       {/* Background effects */}
       <div className='absolute inset-0 overflow-hidden'>
@@ -165,7 +165,7 @@ const AllProjects = () => {
       <div className='max-w-7xl mx-auto relative z-10'>
         <motion.button
           onClick={() => navigate('/#projects')}
-          className='px-6 py-3 bg-white/5 border border-white/10 text-white rounded-xl font-medium hover:bg-white/10 hover:border-blue-500/30 transition-all cursor-pointer'
+          className='px-6 py-3 mb-3 bg-white/5 border border-white/20 text-white rounded-xl font-medium hover:bg-white/10 hover:border-blue-500/30 transition-all cursor-pointer'
           whileHover={{ scale: 1.05, y: -2 }}
           whileTap={{ scale: 0.95 }}
         >
@@ -287,7 +287,7 @@ const AllProjects = () => {
 
                   {/* View Project Link */}
                   <motion.div
-                    className='mt-6 flex items-center gap-2 text-blue-400 font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300'
+                    className='mt-6 flex items-center gap-2 text-blue-400 font-medium opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-300'
                     whileHover={{ x: 5 }}
                   >
                     <span>Ver proyecto</span>
