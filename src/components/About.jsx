@@ -1,6 +1,7 @@
 // eslint-disable-next-line no-unused-vars
 import { motion } from 'motion/react'
 import Section from './Section'
+import { useEffect, useState } from 'react'
 
 const About = () => {
   // const skills = [
@@ -10,7 +11,13 @@ const About = () => {
   //   { icon: '💡', label: 'Innovador+' }
   // ];
 
-  const isMobile = window.innerWidth < 768
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 768)
+
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth < 768)
+    window.addEventListener('resize', handleResize)
+    return () => window.removeEventListener('resize', handleResize)
+  }, [])
 
   return (
     <Section
@@ -26,7 +33,7 @@ const About = () => {
             opacity: [0.2, 0.4, 0.2]
           }}
           transition={{
-            duration: isMobile ? 8 : 4,
+            duration: isMobile ? 12 : 8,
             repeat: Infinity,
             ease: 'easeInOut'
           }}
@@ -38,7 +45,7 @@ const About = () => {
             opacity: [0.2, 0.3, 0.2]
           }}
           transition={{
-            duration: 10,
+            duration: isMobile ? 15 : 10,
             repeat: Infinity,
             ease: 'easeInOut'
           }}
@@ -163,35 +170,33 @@ const About = () => {
             <motion.div
               className='relative'
               animate={{
-                y: [0, -20, 0]
+                y: isMobile ? [0, -10, 0] : [0, -20, 0] // Menos movimiento en mobile
               }}
               transition={{
-                duration: 6,
+                duration: isMobile ? 8 : 6,
                 repeat: Infinity,
                 ease: 'easeInOut'
               }}
             >
               {/* Glow rings */}
               <motion.div
-                className='absolute inset-0 rounded-full'
+                className='absolute inset-0 rounded-full blur-[30px] md:blur-[50px]'
                 animate={{
                   scale: [1, 1.15, 1],
                   opacity: [0.3, 0.1, 0.3]
                 }}
                 transition={{
-                  duration: 3,
+                  duration: isMobile ? 6 : 3,
                   repeat: Infinity,
                   ease: 'easeInOut'
                 }}
                 style={{
-                  background:
-                    'radial-gradient(circle, rgba(168,85,247,0.4) 0%, transparent 70%)',
-                  filter: isMobile ? 'blur(30px)' : 'blur(50px)'
+                  background: 'radial-gradient(circle, rgba(168,85,247,0.4) 0%, transparent 70%)'
                 }}
               />
 
               <motion.div
-                className='absolute inset-0 rounded-full'
+                className='absolute inset-0 rounded-full blur-[30px] md:blur-[50px]'
                 animate={{
                   scale: [1.15, 1, 1.15],
                   opacity: [0.2, 0.4, 0.2]
@@ -202,9 +207,7 @@ const About = () => {
                   ease: 'easeInOut'
                 }}
                 style={{
-                  background:
-                    'radial-gradient(circle, rgba(236,72,153,0.3) 0%, transparent 70%)',
-                  filter: isMobile ? 'blur(30px)' : 'blur(50px)'
+                  background: 'radial-gradient(circle, rgba(236,72,153,0.3) 0%, transparent 70%)'
                 }}
               />
 
@@ -253,7 +256,7 @@ const About = () => {
                 {/* Orbiting dots */}
                 <motion.div
                   className='absolute inset-0'
-                  animate={{ rotate: 360}}
+                  animate={{ rotate: 360 }}
                   transition={{
                     duration: 12,
                     repeat: Infinity,

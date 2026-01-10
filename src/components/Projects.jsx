@@ -1,10 +1,19 @@
 import { motion } from 'motion/react'
 import Section from './Section'
 import { Link } from 'react-router-dom'
+import { useEffect, useState } from 'react'
 
 const MotionLink = motion.create(Link)
 
 const Projects = () => {
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 768)
+
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth < 768)
+    window.addEventListener('resize', handleResize)
+    return () => window.removeEventListener('resize', handleResize)
+  }, [])
+
   return (
     <Section
       id='projects'
@@ -19,7 +28,7 @@ const Projects = () => {
             opacity: [0.2, 0.4, 0.2]
           }}
           transition={{
-            duration: 8,
+            duration: isMobile ? 12 : 8,
             repeat: Infinity,
             ease: 'easeInOut'
           }}
@@ -31,7 +40,7 @@ const Projects = () => {
             opacity: [0.2, 0.3, 0.2]
           }}
           transition={{
-            duration: 10,
+            duration: isMobile ? 15 : 10,
             repeat: Infinity,
             ease: 'easeInOut'
           }}
@@ -44,7 +53,7 @@ const Projects = () => {
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: false, amount: 0.3 }}
+            viewport={{ once: isMobile, amount: 0.3 }}
             transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
             className='order-2 lg:order-1'
           >
@@ -53,7 +62,7 @@ const Projects = () => {
               className='text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-4'
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: false, amount: 0.3 }}
+              viewport={{ once: isMobile, amount: 0.3 }}
               transition={{ duration: 0.7 }}
             >
               Mis{' '}
@@ -68,14 +77,14 @@ const Projects = () => {
                 className='h-1 bg-linear-to-r from-blue-500 to-cyan-500 rounded-full'
                 initial={{ width: 0 }}
                 whileInView={{ width: '120px' }}
-                viewport={{ once: false }}
+                viewport={{ once: isMobile }}
                 transition={{ duration: 0.6, delay: 0.2, ease: 'easeOut' }}
               />
               <motion.div
                 className='h-0.5 bg-linear-to-r from-blue-400/70 to-cyan-400/70 rounded-full'
                 initial={{ width: 0 }}
                 whileInView={{ width: '80px' }}
-                viewport={{ once: false }}
+                viewport={{ once: isMobile }}
                 transition={{ duration: 0.6, delay: 0.35, ease: 'easeOut' }}
               />
             </div>
@@ -84,7 +93,7 @@ const Projects = () => {
               className='text-md md:text-xl text-gray-400 mb-8 leading-relaxed max-w-lg'
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: false, amount: 0.3 }}
+              viewport={{ once: isMobile, amount: 0.3 }}
               transition={{ duration: 0.7, delay: 0.2 }}
             >
               Estos son algunos de mis proyectos que he realizado y en los que
@@ -116,7 +125,7 @@ const Projects = () => {
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: false, amount: 0.3 }}
+            viewport={{ once: isMobile, amount: 0.3 }}
             transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
             className='relative order-1 lg:order-2 w-full'
           >
@@ -124,10 +133,10 @@ const Projects = () => {
             <motion.div
               className='relative'
               animate={{
-                y: [0, -15, 0]
+                y: isMobile ? [0, -10, 0] : [0, -15, 0]
               }}
               transition={{
-                duration: 6,
+                duration: isMobile ? 8 : 6,
                 repeat: Infinity,
                 ease: 'easeInOut'
               }}
@@ -154,8 +163,12 @@ const Projects = () => {
                 className='absolute -top-4 -right-4 bg-linear-to-r from-blue-500 to-cyan-500 text-white px-4 py-2 rounded-xl shadow-lg text-sm font-semibold'
                 initial={{ opacity: 0, scale: 0 }}
                 whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: false }}
-                transition={{ duration: 0.5, delay: 0.6 }}
+                viewport={{ once: isMobile }}
+                transition={{
+                  duration: 0.5,
+                  delay: 0.6,
+                  y: { duration: 3, repeat: Infinity, ease: 'easeInOut' }
+                }}
                 animate={{
                   y: [0, -10, 0]
                 }}
@@ -163,19 +176,20 @@ const Projects = () => {
                 ✨ Nuevos proyectos
               </motion.div>
 
-              {/* Orbiting dot */}
-
-              <motion.div
-                className='absolute inset-0'
-                animate={{ rotate: 360 }}
-                transition={{
-                  duration: 12,
-                  repeat: Infinity,
-                  ease: 'linear'
-                }}
-              >
-                <div className='absolute top-1/2 left-[10%] w-3 h-3 bg-blue-400 rounded-full shadow-lg shadow-blue-400/50' />
-              </motion.div>
+              {/* Orbiting dot - solo desktop */}
+              {!isMobile && (
+                <motion.div
+                  className='absolute inset-0'
+                  animate={{ rotate: 360 }}
+                  transition={{
+                    duration: 12,
+                    repeat: Infinity,
+                    ease: 'linear'
+                  }}
+                >
+                  <div className='absolute top-1/2 left-[10%] w-3 h-3 bg-blue-400 rounded-full shadow-lg shadow-blue-400/50' />
+                </motion.div>
+              )}
             </motion.div>
           </motion.div>
         </div>

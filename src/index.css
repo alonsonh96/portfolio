@@ -5,3 +5,14 @@ html, body {
   overscroll-behavior: none;
   -webkit-overflow-scrolling: touch;
 }
+
+@media (max-width: 768px) {
+  * {
+    will-change: auto !important; /* Desactiva will-change en mobile */
+  }
+}
+
+/* Optimizar scroll en iOS */
+body {
+  overscroll-behavior-y: none;
+}

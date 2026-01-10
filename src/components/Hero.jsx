@@ -2,22 +2,29 @@
 // eslint-disable-next-line no-unused-vars
 import { motion } from 'motion/react'
 import Section from './Section'
-import { useMemo } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { FaGithubSquare, FaLinkedin } from 'react-icons/fa'
 import { ImMail4 } from 'react-icons/im'
 
 const Hero = () => {
-  // Pre-calcular valores aleatorios una sola vez
-  const particles = useMemo(
-    () =>
-      [...Array(100)].map(() => ({
-        left: Math.random() * 100,
-        top: Math.random() * 100,
-        duration: 3 + Math.random() * 2,
-        delay: Math.random() * 2
-      })),
-    []
-  )
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 768)
+
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth < 768)
+    window.addEventListener('resize', handleResize)
+    return () => window.removeEventListener('resize', handleResize)
+  }, [])
+
+  // Optimizado: menos partículas en mobile
+  const particles = useMemo(() => {
+    const count = isMobile ? 30 : 60
+    return [...Array(count)].map(() => ({
+      left: Math.random() * 100,
+      top: Math.random() * 100,
+      duration: 3 + Math.random() * 2,
+      delay: Math.random() * 2
+    }))
+  }, [isMobile])
 
   return (
     <Section
@@ -35,7 +42,7 @@ const Hero = () => {
             y: [0, 30, 0]
           }}
           transition={{
-            duration: 10,
+            duration: isMobile ? 15 : 10,
             repeat: Infinity,
             ease: 'easeInOut'
           }}
@@ -49,7 +56,7 @@ const Hero = () => {
             y: [0, -50, 0]
           }}
           transition={{
-            duration: 12,
+            duration: isMobile ? 18 : 12,
             repeat: Infinity,
             ease: 'easeInOut'
           }}
@@ -63,7 +70,7 @@ const Hero = () => {
             y: [0, -40, 0]
           }}
           transition={{
-            duration: 14,
+            duration: isMobile ? 20 : 14,
             repeat: Infinity,
             ease: 'easeInOut'
           }}
