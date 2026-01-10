@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 import gsap from 'gsap'
-import { Observer } from 'gsap/observer'
+import { Observer } from 'gsap/dist/Observer'
 import { ScrollToPlugin } from 'gsap/ScrollToPlugin'
 import ProgressBar from '../components/ProgressBar'
 import Navigation from '../components/Navigation'
